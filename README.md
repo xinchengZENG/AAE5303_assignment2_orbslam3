@@ -240,8 +240,8 @@ The dataset is from the **MARS-LVIG** UAV dataset, captured over Hong Kong Islan
 | **Total Images** | 7,499 frames |
 | **Image Resolution** | 2448 × 2048 pixels |
 | **Frame Rate** | ~10 Hz |
-| **Trajectory Length** | ~1,900 meters |
-| **Height Variation** | 0 - 90 meters |
+| **Trajectory Length** | ~4,773 meters |
+| **Height Variation** | 1050.94 - 1131.63 meters |
 
 ### Data Sources
 
@@ -399,13 +399,16 @@ Scale Correction: 0.0248
 
 ### Trajectory Comparison
 
-![Trajectory Evaluation](figures/trajectory_evaluation.png)
+<img width="2438" height="1208" alt="1" src="https://github.com/user-attachments/assets/6a308e5e-e0e6-4420-867d-03f2ded70e74" />
+<img width="2432" height="610" alt="2" src="https://github.com/user-attachments/assets/b8983c8a-58a4-411d-87e2-3fb7266d10b6" />
 
-This figure is generated from the same inputs used for evaluation (`ground_truth.txt` and `CameraTrajectory.txt`) and includes:
-
+Those figures ars generated from the same inputs used for evaluation (`ground_truth.txt` and `CameraTrajectory.txt`) and includes:
 1. **Top-Left**: 2D trajectory before alignment (matched poses only). This reveals scale/rotation mismatch typical for monocular VO.
+   
 2. **Top-Right**: 2D trajectory after Sim(3) alignment (scale corrected). Remaining discrepancy reflects drift and local tracking errors.
+ 
 3. **Bottom-Left**: Distribution of ATE translation errors (meters) over all matched poses.
+ 
 4. **Bottom-Right**: ATE translation error as a function of the matched pose index (highlights where drift accumulates).
 
 **Reproducibility**: the figure can be regenerated using `scripts/generate_report_figures.py` together with the `--save_results` output from `evo_ape`.
